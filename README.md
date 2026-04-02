@@ -1,74 +1,46 @@
-![Java](https://img.shields.io/badge/Java-17-blue)
-![Spring Boot](https://img.shields.io/badge/SpringBoot-3.x-green)
-
-
-
-
-# 💰 Finance Dashboard Backend
-
-## 🚀 Overview
+💰 Finance Dashboard Backend
+🚀 Overview
 This project is a backend system for managing financial records with role-based access control and dashboard analytics.
 
 It demonstrates backend design, API structuring, business logic, and secure authentication using JWT.
 
----
+🔧 Tech Stack
+Java + Spring Boot
+Spring Security
+JWT Authentication
+MySQL
+JPA (Hibernate)
+✨ Features
+🔐 Authentication & Authorization
+User Registration & Login
+JWT-based Authentication
+Role-based Access Control (USER / ADMIN)
+💸 Financial Records
+Create, Read, Update, Delete transactions
+Fields: amount, type, category, date, note
+📊 Dashboard APIs
+Total Income
+Total Expense
+Net Balance
+🔍 Filtering
+Filter by type (INCOME / EXPENSE)
+Filter by category
+⚠️ Validation & Error Handling
+Input validation using annotations
+Global exception handling
+🧠 Design Decisions
+Used layered architecture (Controller → Service → Repository)
+Implemented role-based security using Spring Security
+Designed transaction model for flexible filtering and aggregation
+Summary APIs simulate real dashboard analytics
+📌 Assumptions
+Roles simplified to USER and ADMIN
+Date stored as string for simplicity
+JWT validation can be extended further
+📸 API DEMO
+1️⃣ Register User
+POST /auth/register
 
-## 🔧 Tech Stack
-- Java + Spring Boot
-- Spring Security
-- JWT Authentication
-- MySQL
-- JPA (Hibernate)
-
----
-
-## ✨ Features
-
-### 🔐 Authentication & Authorization
-- User Registration & Login
-- JWT-based Authentication
-- Role-based Access Control (USER / ADMIN)
-
-### 💸 Financial Records
-- Create, Read, Update, Delete transactions
-- Fields: amount, type, category, date, note
-
-### 📊 Dashboard APIs
-- Total Income
-- Total Expense
-- Net Balance
-
-### 🔍 Filtering
-- Filter by type (INCOME / EXPENSE)
-- Filter by category
-
-### ⚠️ Validation & Error Handling
-- Input validation using annotations
-- Global exception handling
-
----
-
-## 🧠 Design Decisions
-- Used layered architecture (Controller → Service → Repository)
-- Implemented role-based security using Spring Security
-- Designed transaction model for flexible filtering and aggregation
-- Summary APIs simulate real dashboard analytics
-
----
-
-## 📌 Assumptions
-- Roles simplified to USER and ADMIN
-- Date stored as string for simplicity
-- JWT validation can be extended further
-
----
-
-## 📸 API DEMO
-
-### 1️⃣ Register User
-POST `/auth/register`
-
-```json
 {
   "name": "Ripu",
   "email": "ripu@gmail.com",
@@ -224,4 +196,3 @@ exception/
 - Add pagination for transactions
 - Store date as LocalDate instead of String
 - Deploy backend to cloud (Render/AWS)
-
