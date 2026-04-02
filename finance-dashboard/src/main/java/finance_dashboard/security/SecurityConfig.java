@@ -13,32 +13,26 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-                // Disable CSRF
+               
                 .csrf(csrf -> csrf.disable())
 
                 // Disable default login forms (IMPORTANT)
                 .httpBasic(httpBasic -> httpBasic.disable())
                 .formLogin(form -> form.disable())
 
-                // Stateless session (JWT style)
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
 
-                // Authorization rules
                 .authorizeHttpRequests(auth -> auth
 
-                        // Public APIs
                         .requestMatchers("/auth/**").permitAll()
 
-                        // Role-based APIs
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
 
-                        // 🔥 NEW: Transaction APIs
                         .requestMatchers("/transactions/**").hasAnyRole("USER", "ADMIN")
 
-                        // Any other request must be authenticated
                         .anyRequest().authenticated()
                 );
 
